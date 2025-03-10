@@ -1,4 +1,4 @@
-#include<stdio.h>
+﻿#include<stdio.h>
 #include<malloc.h>
 
 struct Masina {
@@ -79,14 +79,7 @@ void copiazaMasiniUsoare(struct Masina* vector, char nrElemente, float prag, str
 
 }
 
-struct Masina getPrimulElementConditionat(struct Masina* vector, int nrElemente, const char* conditie) {
-	//trebuie cautat elementul care indeplineste o conditie
-	//dupa atributul de tip char*. Acesta este returnat.
-	struct Masina s;
-	s.id = 1;
 
-	return s;
-}
 
 int main() {
 
@@ -94,7 +87,7 @@ int main() {
 	m = initializare(1, "BMW", 2.3, '1');
 	afisare(m);
 
-	int nrMasini = 3;
+	int nrMasini = 4;
 
 	struct Masina* vectorMasini;
 	vectorMasini = malloc(sizeof(struct Masina) * nrMasini);
@@ -102,6 +95,7 @@ int main() {
 	vectorMasini[0] = initializare(2, "Mercedes", 2.2, 'C');
 	vectorMasini[1] = initializare(3, "Audi", 2.6, 'S');
 	vectorMasini[2] = initializare(4, "BMW", 1.8, '5');
+	vectorMasini[3] = initializare(5, "BMW", 2.2, '3');
 
 	afisareVector(vectorMasini, nrMasini);
 
@@ -121,6 +115,7 @@ int main() {
 	afisareVector(vectorMasiniCopiate, nrElementeCopiate);
 
 	dezalocare(&vectorMasiniCopiate, &nrElementeCopiate);
+
 
 	return 0;
 }

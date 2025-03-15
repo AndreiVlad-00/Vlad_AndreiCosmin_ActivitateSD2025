@@ -24,7 +24,7 @@
     <ProjectGuid>{a60221d8-6927-4382-a39e-26eba8785738}</ProjectGuid>
     <RootNamespace>VladAndreiCosminActivitateSD2025</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Seminar02</ProjectName>
+    <ProjectName>Vlad_AndreiCosmin_ActivitateSD2025</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,6 +128,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ExSeminar02.c" />
+    <ClCompile Include="Rec_Seminar03.c" />
     <ClCompile Include="Seminar02.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

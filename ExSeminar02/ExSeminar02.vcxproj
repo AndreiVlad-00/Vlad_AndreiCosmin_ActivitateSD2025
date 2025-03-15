@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a60221d8-6927-4382-a39e-26eba8785738}</ProjectGuid>
-    <RootNamespace>VladAndreiCosminActivitateSD2025</RootNamespace>
+    <ProjectGuid>{7d4e83c7-bfc4-4faa-b352-bcd6c38038ed}</ProjectGuid>
+    <RootNamespace>ExSeminar02</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Seminar02</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Seminar02.c" />
+    <ClCompile Include="..\Vlad_AndreiCosmin_ActivitateSD2025\ExSeminar02.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

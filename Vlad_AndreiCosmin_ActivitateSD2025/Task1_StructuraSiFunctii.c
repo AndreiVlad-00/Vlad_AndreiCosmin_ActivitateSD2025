@@ -15,6 +15,20 @@ typedef struct Avocat {
 	char* specializare;
 }Avocat;
 
+//functie creare obiect de tip Avocat
+Avocat creareAvocat(const char* nume, int varsta, int aniExperienta, float salariuAnual, const char* specializare) {
+    Avocat a;
+    a.nume = (char*)malloc((strlen(nume) + 1) * sizeof(char));
+    strcpy_s(a.nume, (strlen(nume) + 1), nume);
+    a.varsta = varsta;
+    a.aniExperienta = aniExperienta;
+    a.salariuAnual = salariuAnual;
+    a.specializare = (char*)malloc((strlen(specializare) + 1) * sizeof(char));
+    strcpy_s(a.specializare, (strlen(specializare) + 1), specializare);
+
+    return a;
+}
+
 
 
 //functia de citire de la tastatura
@@ -48,7 +62,7 @@ Avocat citesteAvocat() {
 //functie afisare avocat
 void afiseazaAvocat(Avocat avocat) {
 
-    printf("\n AVOCATUL ESTE: \n");
+    printf("\nAVOCATUL ESTE: \n");
     printf("Nume: %s \n", avocat.nume);
     printf("Varsta: %d \n", avocat.varsta);
     printf("Ani Experienta: %d \n", avocat.aniExperienta);
@@ -86,16 +100,34 @@ float totalSalarii(Avocat avocat) {
     return total; 
 }
 
+//dezalocare
+
+void dezalocare(Avocat* avocat) {
+    free(avocat->nume);
+    avocat->nume = NULL;
+    free(avocat->specializare);
+    avocat->specializare = NULL;
+}
+
+
 
 int main() {
 
     Avocat avocat = citesteAvocat();
     afiseazaAvocat(avocat);
-
+   
 
 
     printf("\nSuma lunara pe care o primeste avocatul este: %.2f: \n", salariulLunar(avocat));
     printf("\nSuma totala primita de avocat este: %.2f: \n", totalSalarii(avocat));
+    dezalocare(&avocat);
+    
+  
+    //apelare functie creare 
+    Avocat a1 = creareAvocat("Ionut", 86, 60, 30000, "de afaceri");
+    printf("\nAvocatul apelat din main \n");
+    afiseazaAvocat(a1);
+    dezalocare(&a1);
 	return 0;
 }
 

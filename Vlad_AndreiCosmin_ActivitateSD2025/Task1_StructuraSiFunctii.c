@@ -56,12 +56,46 @@ void afiseazaAvocat(Avocat avocat) {
     printf("Specializare: %s \n", avocat.specializare);
 }
 
+//functie care sa afiseze ce salariu ia avocatul pe luna
+
+float salariulLunar(Avocat avocat) {
+    float sumaLunara = 0;
+    if (avocat.salariuAnual > 0) {
+        sumaLunara = avocat.salariuAnual / 12;
+    }
+    else {
+        printf("Salariul este 0!");
+        return 0.0f;
+    }
+    
+    return sumaLunara;
+       
+}
+
+//functie care afiseaza totatlul sumei incasate de avocat pe timpul activitatii lui
+float totalSalarii(Avocat avocat) {
+    float total = 0;
+    if (avocat.salariuAnual > 0) {
+        total = avocat.salariuAnual * avocat.aniExperienta;
+    }
+    else {
+        printf("Salariul este 0!");
+        return 0.0f;
+    }
+
+    return total; 
+}
+
 
 int main() {
 
     Avocat avocat = citesteAvocat();
     afiseazaAvocat(avocat);
 
+
+
+    printf("\nSuma lunara pe care o primeste avocatul este: %.2f: \n", salariulLunar(avocat));
+    printf("\nSuma totala primita de avocat este: %.2f: \n", totalSalarii(avocat));
 	return 0;
 }
 

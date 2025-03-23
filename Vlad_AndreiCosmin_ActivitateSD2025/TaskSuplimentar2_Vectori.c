@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -28,8 +28,6 @@ Avocat creareAvocat(const char* nume, int varsta, int aniExperienta, float salar
     return a;
 }
 
-
-
 //functie afisare avocat
 void afiseazaAvocat(Avocat avocat) {
 
@@ -48,7 +46,29 @@ void afisareVector(Avocat* vector, int nrElemente) {
 	}
 }
 
+//creare vector bazat pe un parametru 
 
+Avocat* filtreazaAvocati(Avocat* vector, int nrElemente, int* nrNou) {
+    int count = 0;
+    for (int i = 0; i < nrElemente; i++) {
+        if (vector[i].aniExperienta > 10 && vector[i].salariuAnual > 10000) {
+            count++;
+        }
+    }
+
+    Avocat* rezultat = (Avocat*)malloc(sizeof(Avocat) * count);
+    int index = 0;
+
+    for (int i = 0; i < nrElemente; i++) {
+        if (vector[i].aniExperienta > 10 && vector[i].salariuAnual > 10000) {
+            rezultat[index] = vector[i];
+            index++;
+        }
+    }
+
+    *nrNou = count; 
+    return rezultat;
+}
 
 
 //dezalocare 
@@ -62,32 +82,27 @@ void dezalocare(Avocat* avocat) {
 
 
 int main() {
-    //creare obiecte de tip avocat
-   
+    int nrAvocati = 5;
+    Avocat* vectorAvocati = (Avocat*)malloc(sizeof(Avocat) * nrAvocati);
 
-    Avocat a1 = creareAvocat("Ionut", 25, 1, 4000, "drept comercial");
+    vectorAvocati[0] = creareAvocat("Ionut", 25, 1, 4000, "drept comercial");
+    vectorAvocati[1] = creareAvocat("Marcel", 45, 20, 17000, "drept medical");
+    vectorAvocati[2] = creareAvocat("Viorel", 55, 30, 28000, "drept civil");
+    vectorAvocati[3] = creareAvocat("Gigel", 31, 6, 8400, "drept penal");
+    vectorAvocati[4] = creareAvocat("Marian", 44, 16, 12600, "drept penal");
+
+
+    afisareVector(vectorAvocati, nrAvocati);
+
+    int nrNou;
+    Avocat* avocatiFiltrati = filtreazaAvocati(vectorAvocati, nrAvocati, &nrNou);
+
  
-    Avocat a2 = creareAvocat("Marcel", 45, 20, 17000, "drept medical");
+    printf("\nAvocati filtrati:\n");
+    afisareVector(avocatiFiltrati, nrNou);
 
-    Avocat a3 = creareAvocat("Viorel", 55, 30, 28000, "drept civil");
-
-    Avocat a4 = creareAvocat("Gigel", 31, 6, 8400, "drept penal");
-
-    Avocat a5 = creareAvocat("Marian", 44, 16 , 12600, "drept penal");
-
-    //vector alocat dinamic cu 5 obiecte
-    int nrAvocati = 5; //dimensiunea vectorului meu
-    Avocat* vectorAvocati = (Avocat*)malloc(sizeof(Avocat) * nrAvocati); //alocare dim
-    //adaugare avocati in vector
-    vectorAvocati[0] = a1;
-    vectorAvocati[1] = a2;
-    vectorAvocati[2] = a3;
-    vectorAvocati[3] = a4;
-    vectorAvocati[4] = a5;
-
-    //afisare vector
-    afisareVector(vectorAvocati,nrAvocati);
-
+    free(vectorAvocati);
+    free(avocatiFiltrati);
 
     return 0;
 }

@@ -46,17 +46,17 @@ void afisareVector(Avocat* vector, int nrElemente) {
 	}
 }
 
-//creare vector bazat pe un parametru 
+//creare vector bazat pe doi parametri
 
 Avocat* filtreazaAvocati(Avocat* vector, int nrElemente, int* nrNou) {
-    int count = 0;
+    int nrVarVectorNou = 0;
     for (int i = 0; i < nrElemente; i++) {
         if (vector[i].aniExperienta > 10 && vector[i].salariuAnual > 10000) {
-            count++;
+            nrVarVectorNou++;
         }
     }
 
-    Avocat* rezultat = (Avocat*)malloc(sizeof(Avocat) * count);
+    Avocat* rezultat = (Avocat*)malloc(sizeof(Avocat) * nrVarVectorNou);
     int index = 0;
 
     for (int i = 0; i < nrElemente; i++) {
@@ -65,8 +65,46 @@ Avocat* filtreazaAvocati(Avocat* vector, int nrElemente, int* nrNou) {
             index++;
         }
     }
+    *nrNou = nrVarVectorNou; 
+    return rezultat;
+}
 
-    *nrNou = count; 
+//alta functie care creaza un nou vector pe baza unui alt parametru fata de exercitiul anterior
+Avocat* filtreazaAvocati2(Avocat* vector, int nrElemente, int* nrNou) {
+    int nrVarVectorNou = 0;
+    //incrementam variabila noastra ca sa ne inumere cate obiecte de tip avocat gaseste care indeplinesc conditia noastra
+    for (int i = 0; i < nrElemente; i++) {
+        if (vector[i].varsta < 35) {
+            nrVarVectorNou++;
+        }
+    }
+
+    Avocat* rezultat = (Avocat*)malloc(sizeof(Avocat) * nrVarVectorNou);
+    int index = 0;
+
+    for (int i = 0; i < nrElemente; i++) {
+        if (vector[i].varsta < 35) {
+            rezultat[index] = vector[i];
+            index++;
+        }
+    }
+    *nrNou = nrVarVectorNou;
+    return rezultat;
+}
+
+//functie de concatenare vectori
+Avocat* concateneazaVectori(Avocat* vector1, int nrElemente1, Avocat* vector2, int nrElemente2) {
+    int totalElemente = nrElemente1 + nrElemente2;
+
+    Avocat* rezultat = (Avocat*)malloc(sizeof(Avocat) * totalElemente);
+
+    for (int i = 0; i < nrElemente1; i++) {
+        rezultat[i] = vector1[i];
+    }
+    for (int i = 0; i < nrElemente2; i++)
+    {
+        rezultat[nrElemente1 + i] = vector2[i];
+    }
     return rezultat;
 }
 
@@ -80,7 +118,6 @@ void dezalocare(Avocat* avocat) {
 }
 
 
-
 int main() {
     int nrAvocati = 5;
     Avocat* vectorAvocati = (Avocat*)malloc(sizeof(Avocat) * nrAvocati);
@@ -91,7 +128,6 @@ int main() {
     vectorAvocati[3] = creareAvocat("Gigel", 31, 6, 8400, "drept penal");
     vectorAvocati[4] = creareAvocat("Marian", 44, 16, 12600, "drept penal");
 
-
     afisareVector(vectorAvocati, nrAvocati);
 
     int nrNou;
@@ -101,8 +137,39 @@ int main() {
     printf("\nAvocati filtrati:\n");
     afisareVector(avocatiFiltrati, nrNou);
 
+    Avocat* avocatiFiltrati2 = filtreazaAvocati2(vectorAvocati, nrAvocati, &nrNou);
+
+    printf("\nAvocati filtrati dupa varsta:\n");
+    afisareVector(avocatiFiltrati2, nrNou);
+
     free(vectorAvocati);
     free(avocatiFiltrati);
 
+    //creare 2 vectori noi si concatenarea lor
+
+    
+    printf("\n");
+    printf("\n");
+    printf("\n Vector concatentai:\n");
+
+    int nrAvocati2 = 3;
+    Avocat vector1[] = {
+        creareAvocat("Ionut", 25, 1, 4000, "drept comercial"),
+        creareAvocat("Marcel", 45, 20, 17000, "drept medical"),
+        creareAvocat("Viorel", 55, 30, 28000, "drept civil")
+    };
+
+    int nrAvocati3 = 2;
+    Avocat vector2[] = {
+        creareAvocat("Gigel", 31, 6, 8400, "drept penal"),
+        creareAvocat("Marian", 44, 16, 12600, "drept penal")
+    };
+
+    Avocat* vectorConcatenat = concateneazaVectori(vector1, nrAvocati2, vector2, nrAvocati3);
+    int nrTotal = nrAvocati2 + nrAvocati3;
+
+    printf("\nVector concatenat:\n");
+    afisareVector(vectorConcatenat, nrTotal);
+    free(vectorConcatenat);
     return 0;
 }

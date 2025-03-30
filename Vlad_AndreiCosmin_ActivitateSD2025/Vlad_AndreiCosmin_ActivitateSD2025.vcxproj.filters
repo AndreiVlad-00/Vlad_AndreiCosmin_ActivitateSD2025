@@ -24,5 +24,31 @@
     <ClCompile Include="Rec_Seminar03.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="exersare_vectori.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSuplimentar1_Structura si Functii.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rec_Seminar04.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSuplimentar2_Vectori.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rec_Seminar05.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSuplimentar3_Fisiere.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="masini.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="avocati.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

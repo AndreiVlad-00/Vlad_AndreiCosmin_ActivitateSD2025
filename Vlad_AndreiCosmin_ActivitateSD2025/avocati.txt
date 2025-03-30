@@ -1,0 +1,10 @@
+Mihai,23,2,9.500,Penal
+Ionut,26,5,10.000,Medical
+Gheorghe,43,18,33.800,Comercial
+Andrei,31,7,18.100,Civil
+Ioana,42,10,21.230,Civil
+Andreea,52,32,65.200,Penal
+Vasile,30,2,10.500,Medical
+Georgeta,55,20,35.150,Penal
+Matei,22,1,6.500,Medical
+Niculae,56,36,45.500,Civil

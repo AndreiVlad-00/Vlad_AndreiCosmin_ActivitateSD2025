@@ -128,9 +128,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="exersare_vectori.c" />
     <ClCompile Include="ExSeminar02.c" />
     <ClCompile Include="Rec_Seminar03.c" />
+    <ClCompile Include="Rec_Seminar04.c" />
+    <ClCompile Include="Rec_Seminar05.c" />
     <ClCompile Include="Seminar02.c" />
+    <ClCompile Include="TaskSuplimentar1_Structura si Functii.c" />
+    <ClCompile Include="TaskSuplimentar2_Vectori.c" />
+    <ClCompile Include="TaskSuplimentar3_Fisiere.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="avocati.txt" />
+    <Text Include="masini.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -85,12 +85,12 @@ Avocat* citireVectorDeAvocatiDinFisier(const char* numeFisier, int* nrAvocatiCit
 //salvare avocat in fisier
 
 void salveazaAvocatInFisier(Avocat avocat, const char* numeFisier) {
-    FILE* fisier = fopen(numeFisier, "w");
+    FILE* fisier = fopen(numeFisier, "a");
     if (!fisier) {
         printf("Eroare la deschiderea fisierului!\n");
         return;
     }
-    fprintf(fisier, "%s,%d,%d,%.3f,%s\n",
+    fprintf(fisier, "\n%s,%d,%d,%.3f,%s",
         avocat.nume, avocat.varsta, avocat.aniExperienta, avocat.salariuAnual, avocat.specializare);
     fclose(fisier);
 }
@@ -116,41 +116,15 @@ int main() {
     afisareVectorAvocati(avocati, nrAvocati);
 
     dezalocare(&avocati, &nrAvocati);
-
-    printf("\nAVOCAT NOU DIN FISIERUL NOU\n");
-
-
+    printf("\n-------------------------------------------------\n");
+    printf("\nLista actualizata de avocati este\n");
+    printf("\n-------------------------------------------------\n");
+    Avocat* avocatiActualizati;
+    int nrAvocatiNou = 0;
     Avocat avocat = { "Ion Popescu", 45, 20, 75000.5, "Drept Penal" };
-    salveazaAvocatInFisier(avocat, "avocatNou.txt");
-
-    FILE* fisierNou = fopen("avocatNou.txt", "r");
-    if (!fisierNou) {
-        printf("Eroare la deschiderea fisierului avocatNou.txt!\n");
-        return 1;
-    }
-    Avocat avocatCitit = citireAvocatDinFisier(fisierNou);
-    afisareAvocat(avocatCitit);  // Afisare avocat citit din "avocatNou.txt"
-
-    // Eliberarea memoriei
-    free(avocatCitit.nume);
-    free(avocatCitit.specializare);
+    salveazaAvocatInFisier(avocat, "avocati.txt");
+    avocatiActualizati = citireVectorDeAvocatiDinFisier("avocati.txt", &nrAvocatiNou);
+    afisareVectorAvocati(avocatiActualizati, nrAvocatiNou);
 
     return 0;
 }
-
-
-
-//printf("\nAVOCAT NOU:\n");
-
-//FILE* fisier = fopen("avocatNou.txt", "r");
-//if (!fisier) {
-//    printf("Eroare la deschiderea fisierului!\n");
-//    return 1;
-//}
-
-//Avocat avocatCitit = citireVectorDeAvocatiDinFisier(fisier, nrAvocati);
-//fclose(fisier);
-
-//afisareAvocat(avocatCitit);
-
-// Eliberare memorie

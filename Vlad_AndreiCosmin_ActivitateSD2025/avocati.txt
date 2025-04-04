@@ -8,3 +8,7 @@ Vasile,30,2,10.500,Medical
 Georgeta,55,20,35.150,Penal
 Matei,22,1,6.500,Medical
 Niculae,56,36,45.500,Civil
+Ion Popescu,45,20,75000.500,Drept Penal
+Ion Popescu,45,20,75000.500,Drept Penal
+Ion Popescu,45,20,75000.500,Drept Penal
+Ion Popescu,45,20,75000.500,Drept Penal

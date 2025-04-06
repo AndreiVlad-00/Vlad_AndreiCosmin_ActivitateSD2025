@@ -1,0 +1,5 @@
+GreenPharm 780.3 10 Strada_Tineretului_11
+VitaPlus 1020.7 14 Bulevardul_Eroilor_56
+NovaFarm 865.2 9 Strada_Lalelelor_7
+BioMed 925.5 13 Piata_Constitutiei_2
+Santerra 690.8 8 Strada_Garofitei_4
